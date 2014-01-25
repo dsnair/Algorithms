@@ -49,9 +49,6 @@ double main() {
 			for (i = 0; i < n; i++) {
 				x[i] = MatVecMultiply(yhat, i);
 			}
-			for (i = 0; i < n; i++) {
-				xhat[i] = Normalize(x, i);
-			}
 			lambda = Rayleigh(yhat);	
 			error = fabs((lambda - lambda0) / lambda);  /* relative error */		
 			printf("%3f \t %13f \n", lambda, error);
