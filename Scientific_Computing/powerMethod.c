@@ -1,3 +1,5 @@
+/* Calculate the largest Eigenvalue of a matrix */
+
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>  // used for random number generation
@@ -10,22 +12,23 @@ double matA[n][n];
 
 // declare functions
 void GenMatrix();
-double MatVecMultiply(double vecZ[n], int counter);
+double MatVecMult(double vecZ[n], int counter);
 double Normalize(double vecY[n], int counter);
 double Rayleigh(double unitY[n]);
 
 double main() {	
 	double lambda0 = 1.0;  /* initial Eigenvalue guess */
-	// error tolerance allowed between initial guess vs actual Eigenvalue
-	double tol = 0.00005;
-	// set error as a multiple of tolerance so the loop performs at least once
-	double error = 10.0 * tol;
+	double tol = 0.00005;  // allowed error tolerance
 	int iter = 0;  // initial iteration
-	// set maxIter to avoid infinite looping if the error tolerance isn't reached
-	int maxIter = 100;  // maximum iterations allowed
-	double vecZ[n], y[n], yhat[n], lambda, x[n], xhat[n];
+	double vecZ[n], y[n], yhat[n], lambda;
 	clock_t start, stop;
 	int i;
+
+	// set error as a multiple of tolerance so the loop is performed at least once
+	double error = 10.0 * tol;
+	
+	// set maxIter to avoid infinite looping if the error tolerance isn't reached
+	int maxIter = 100;  // maximum allowed iterations	
 	
 	start = clock();
 
@@ -36,7 +39,7 @@ double main() {
 	}
 
 	for (i = 0; i < n; i++) {
-		y[i] = MatVecMultiply(vecZ, i);
+		y[i] = MatVecMult(vecZ, i);
 	}
 
 	printf("%3s \t %18s \n", "lambda", "error");
@@ -46,14 +49,13 @@ double main() {
 			for (i = 0; i < n; i++) {
 				yhat[i] = Normalize(y, i);
 			}
-			for (i = 0; i < n; i++) {
-				x[i] = MatVecMultiply(yhat, i);
-			}
 			lambda = Rayleigh(yhat);	
 			error = fabs((lambda - lambda0) / lambda);  /* relative error */		
 			printf("%3f \t %13f \n", lambda, error);
-			// update initial Eigenvalue guess with newly computed Eigenvalue 
-			lambda0 = lambda;
+			lambda0 = lambda;  // update old Eigenvalue with new one
+			for (i = 0; i < n; i++) {
+				y[i] = MatVecMult(yhat, i);  // update old Eigenvector with new one
+			}
 			iter = iter + 1;
 		}
 		else break;
@@ -65,7 +67,7 @@ double main() {
 	printf("Elapsed time: %f seconds \n", (double)(stop - start) / CLOCKS_PER_SEC);
 }
 
-/* generate matrix 'matA' */
+/* randomly generate matrix 'matA' */
 
 void GenMatrix() {
 	int i, j;
@@ -77,9 +79,9 @@ void GenMatrix() {
     }
 }
 
-/* 'MatrixMultiply' multiplies matrix 'matA' with column vector 'vecZ' to obtain column vector 'vecY' */
+/* 'MatVecMult' multiplies matrix 'matA' with column vector 'vecZ' to obtain column vector 'vecY' */
 
-double MatVecMultiply(double vecZ[n], int counter) {
+double MatVecMult(double vecZ[n], int counter) {
 	int i, j;
 	double vecY[n], *p;
 	for (i = 0; i < n; i++) {
