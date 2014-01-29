@@ -1,4 +1,4 @@
-/* Calculate the largest Eigenvalue of a matrix */
+/* Calculate the largest eigenvalue of a matrix (improved) */
 
 # include <stdio.h>
 # include <math.h>
@@ -17,7 +17,7 @@ double Normalize(double vecY[n], int counter);
 double Rayleigh(double unitY[n]);
 
 double main() {	
-	double lambda0 = 1.0;  /* initial Eigenvalue guess */
+	double lambda0 = 1.0;  /* initial eigenvalue guess */
 	double tol = 0.00005;  // allowed error tolerance
 	int iter = 0;  // initial iteration
 	double vecZ[n], y[n], yhat[n], lambda;
@@ -35,7 +35,7 @@ double main() {
 	GenMatrix();		
 	
 	for (i = 0; i < n; i++) {
-		vecZ[i] = 2.0;  /* set initial Eigenvector guess */
+		vecZ[i] = 2.0;  /* set initial eigenvector guess */
 	}
 
 	for (i = 0; i < n; i++) {
@@ -44,21 +44,18 @@ double main() {
 
 	printf("%3s \t %18s \n", "lambda", "error");
 
-	while (iter < maxIter) {
-		if (error > tol) {			
-			for (i = 0; i < n; i++) {
-				yhat[i] = Normalize(y, i);
-			}
-			lambda = Rayleigh(yhat);	
-			error = fabs((lambda - lambda0) / lambda);  /* relative error */		
-			printf("%3f \t %13f \n", lambda, error);
-			lambda0 = lambda;  // update old Eigenvalue with new one
-			for (i = 0; i < n; i++) {
-				y[i] = MatVecMult(yhat, i);  // update old Eigenvector with new one
-			}
-			iter = iter + 1;
+	while (iter <= maxIter && error > tol) {
+		for (i = 0; i < n; i++) {
+			yhat[i] = Normalize(y, i);
 		}
-		else break;
+		lambda = Rayleigh(yhat);	
+		error = fabs((lambda - lambda0) / lambda);  /* relative error */		
+		printf("%3f \t %13f \n", lambda, error);
+		lambda0 = lambda;  // update old eigenvalue with new one
+		for (i = 0; i < n; i++) {
+			y[i] = MatVecMult(yhat, i);  // update old eigenvector with new one
+		}
+		iter = iter + 1;
 	}
 
 	printf("Number of iterations: %d \n", iter);
@@ -74,7 +71,7 @@ void GenMatrix() {
 	srand(time(NULL));  // randomize seed
     for (i = 0; i < n; i++) {
     	for (j = 0; j < n; j++) {
-    		matA[i][j] = rand() % 100 + 1;  // random number between 1 and 100        	
+    		matA[i][j] = rand() % 100 + 1;  // random number between [1, 100]        	
     	}        
     }
 }
@@ -117,7 +114,7 @@ double Normalize(double vecY[n], int counter) {
 }
 
 /* 'Rayleigh' calculates the Rayleigh quotient i.e.,
-((unitY)^t * matA * unitY) / ((unitY)^t * unitY) to estimate Eigenvalue 'lambda' */
+((unitY)^t * matA * unitY) / ((unitY)^t * unitY) to estimate eigenvalue 'lambda' */
 
 double Rayleigh(double unitY[n]) {
 	int i, j;
@@ -138,7 +135,7 @@ double Rayleigh(double unitY[n]) {
 	for (i = 0; i < n; i++) {
 		deno = deno + unitY[i] * unitY[i];
 	}
-	/* obtain Eigenvalue */
+	/* obtain eigenvalue */
 	lambda = num / deno;
 	p = &lambda;
 	return *p;
