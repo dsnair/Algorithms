@@ -38,7 +38,7 @@ both off-diagonal entries are -2, everywhere else has 0.
                 Bx[i - 1] = sum; //matrix Bx is getting its entries filled in here
         }
        
-/* Applying Conjugate Gradient Method to Solve Bx=c  */
+	/* Applying Conjugate Gradient Method to Solve Bx=c  */
         for(i = 0; i < n; i++) {
                 r[i] = c[i] - Bx[i]; //computing the residual c-Bx
                 p[i] = r[i]; //p is the direction vector
