@@ -1,5 +1,3 @@
-//Computer Problem 6.2.1
-
 #include<stdio.h>
 #include<math.h>
 
