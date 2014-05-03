@@ -1,5 +1,3 @@
-//Computer Problem 3.5.5
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <complex.h>
