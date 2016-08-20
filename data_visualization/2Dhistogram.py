@@ -21,7 +21,7 @@ py.plot(yfig)
 
 xyhist = [go.Histogram2d(x = x, y = y, histnorm = "")]
 xytitle = go.Layout(title = "Joint Frequency Distribution of Sepal Length and Width", 
-					xaxis = dict(title = "Length"),
-					yaxis = dict(title = "Width"))
+		    xaxis = dict(title = "Length"),
+		    yaxis = dict(title = "Width"))
 xyfig = go.Figure(data = xyhist, layout = xytitle)
 py.plot(xyfig)
