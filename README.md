@@ -1,5 +1,3 @@
-# README
-
 ## Project
 
 Write various CS, statistics, and mathematics algorithms from scratch
@@ -13,7 +11,6 @@ Write various CS, statistics, and mathematics algorithms from scratch
 1. EM algorithm
 2. Single-step MinP-MaxT resampling method
 3. Linear regression
-4. Perceptron
 
 ### Mathematics
 
@@ -23,10 +20,12 @@ Write various CS, statistics, and mathematics algorithms from scratch
 4. Conjugate gradient method
 5. Power method
 6. Hadamard product
-3. Finding coefficients for Newton interpolating polynomials by the method of Divided Differences
+7. Finding coefficients for Newton interpolating polynomials by the method of Divided Differences
+8. Perceptron
 
 ## Work Summary
 
 1. Python
-2. R
-3. C, OpenCL
+2. JavaScript
+3. R
+4. C, OpenCL
