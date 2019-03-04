@@ -1,10 +1,10 @@
 ## Project
 
-Write various CS, statistics, and mathematics algorithms from scratch
+Write various CS, Statistics, and Mathematics algorithms from scratch
 
 ### CS
 
-1. coming up!
+1. Stack
 
 ### Statistics
 
@@ -23,7 +23,7 @@ Write various CS, statistics, and mathematics algorithms from scratch
 7. Finding coefficients for Newton interpolating polynomials by the method of Divided Differences
 8. Perceptron
 
-## Work Summary
+## Languages
 
 1. Python
 2. JavaScript
