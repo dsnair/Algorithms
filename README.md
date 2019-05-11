@@ -5,7 +5,8 @@ Write various CS, Statistics, and Mathematics algorithms from scratch
 ### CS
 
 1. Stack
-2. Bubble sort
+1. Bubble sort
+1. Quick Sort
 
 ### Statistics
 
