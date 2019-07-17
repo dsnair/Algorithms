@@ -13,21 +13,36 @@ def merge_sort(arr):
     median = math.ceil(len(arr)/2)
 
     left = arr[:median]
-    merge_sort(left)
+    left = merge_sort(left)
 
     right = arr[median:] 
-    merge_sort(right)
+    right = merge_sort(right)
 
     # Step 2
-    return bubble_sort(left, right)
+    return merge_arr(left, right)
 
-def bubble_sort(left, right):
-    arr = list((*left, *right))
-    for i in range(len(arr)):
-        for j in range(i+1, len(arr)):
-            if arr[i] > arr[j]:
-                arr[i], arr[j] = arr[j], arr[i]
-    return arr
+# merge two sorted arrays
+def merge_arr(left, right):
+    print("LR", left, right)
+    sorted_arr = []
+    while(len(left) and len(right)):
+        if left[0] > right[0]:
+            sorted_arr.append(right[0])
+            right.remove(right[0])
+        else:
+            sorted_arr.append(left[0])
+            left.remove(left[0])
+
+    while len(left):
+        sorted_arr.append(left[0])
+        left.remove(left[0])
+
+    while len(right):
+        sorted_arr.append(right[0])
+        right.remove(right[0])
+
+    print("So", sorted_arr)
+    return sorted_arr
 
 print(merge_sort([50, 70, 10, 40, 60, 30, 20]))
 print(merge_sort([]))
