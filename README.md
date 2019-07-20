@@ -6,7 +6,11 @@ Write various CS, Statistics, and Mathematics algorithms from scratch
 
 1. Stack
 1. Bubble sort
-1. Quick Sort
+1. Quick sort
+1. Merge sort
+1. Selection sort
+
+1. Big-O
 
 ### Statistics
 
