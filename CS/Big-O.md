@@ -1,17 +1,27 @@
-# Analysis of Algorithms
+# Runtime Analysis of Algorithms
 
 ## Big-O Rules
 
 1. O(f(x)) + O(g(x)) = O(f(x) + g(x)) (independent operations)
 2. O(f(x)) * O(g(x)) = O(f(x) * g(x)) (dependent operations)
-3. O(c * f(x)) = O(f(x))
+3. O(c * f(x)) = O(f(x)), c = constant
 3. O(f(x) + c) = O(f(x))
 4. O(c) = O(1)
 
-Give an analysis of the running time of each snippet of
-pseudocode with respect to the input size n of each of the following:
+In order of good to bad,
+
+- O(c), c = constant. Eg: O(1)
+- O(log n), n = # of elements
+- O(n)
+- O(n logn), i.e loglinear
+- O(n^c), Eg: quadratic
+- O(c^n), Eg: exponential
+
 
 ## Exercise I
+
+Give an analysis of the running time of each snippet of
+pseudocode with respect to the input size n of each of the following:
 
 ```
 a)  a = 0

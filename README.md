@@ -1,24 +1,34 @@
 ## Project
 
-Write various CS, Statistics, and Mathematics algorithms from scratch
+Write various CS, Mathematics and Statistics algorithms from scratch
 
-### CS
+### I. CS
 
-1. Stack
-1. Bubble sort
+Big-O Runtime Analysis
+
+#### A. Sort Algorithms
+
 1. Quick sort
-1. Merge sort
+1. Bubble sort
 1. Selection sort
+1. Merge sort
 
-1. Big-O
+#### B. Data Structures
 
-### Statistics
+1. Queue
+1. Stack
+1. Binary Search Tree
+~~1. Doubly Linked List~~
+~~1. Heap~~
+~~1. LRU Cache~~
+~~1. AVL Tree~~
 
-1. EM algorithm
-2. Single-step MinP-MaxT resampling method
-3. Linear regression
+#### C. Search Algorithms
 
-### Mathematics
+Coming soon!
+
+
+### II. Mathematics and Statistics
 
 1. Newton's method
 2. Steffensen's method
@@ -28,6 +38,9 @@ Write various CS, Statistics, and Mathematics algorithms from scratch
 6. Hadamard product
 7. Finding coefficients for Newton interpolating polynomials by the method of Divided Differences
 8. Perceptron
+1. EM algorithm
+2. Single-step MinP-MaxT resampling method
+3. Linear regression
 
 ## Languages
 
