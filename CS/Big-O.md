@@ -1,8 +1,6 @@
 # Analysis of Algorithms
 
-## Exercise I
-
-### Big-O Rules
+## Big-O Rules
 
 1. O(f(x)) + O(g(x)) = O(f(x) + g(x)) (independent operations)
 2. O(f(x)) * O(g(x)) = O(f(x) * g(x)) (dependent operations)
@@ -12,6 +10,8 @@
 
 Give an analysis of the running time of each snippet of
 pseudocode with respect to the input size n of each of the following:
+
+## Exercise I
 
 ```
 a)  a = 0
