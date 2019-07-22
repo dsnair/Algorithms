@@ -36,6 +36,8 @@
 ### 6. Binary Tree
 - is a type of tree where a node has ATmost two child nodes (hence the name)
 - Given any node, the left subtree of that node contains values < than that node. And, the right subtree of that node contains values >= than that node.
+- The left and right subtree each must also be a binary search tree.
+- There must be no duplicate nodes.
 - Binary trees are great to use in search algorithms, in comparison to arrays or linked lists, because you traverse through only a portion of the tree (based on is current node < (or >) the node you are searching?) and not through all the elements as in an array or linked lists. 
 - Binary trees are not as good for inserting new elements as arrays and linked lists are.
 
