@@ -1,19 +1,24 @@
 class Queue:
   def __init__(self):
-    # what data structure should we use to store queue elements?
     self.storage = []
+    self.length = 0
 
   def enqueue(self, item):
+    self.length += 1
     return self.storage.append(item)
   
   def dequeue(self):
-    return self.storage.pop(0) if len(self.storage) != 0 else None
+    if self.length:
+      self.length -= 1
+      return self.storage.pop(0)
+    else:
+      return None
 
   def len(self):
-    return len(self.storage)
+    return self.length
 
   def __str__(self):
-    return "{}".format(self.storage)
+    return "{} : {}".format(self.storage, self.length)
 
 
 q = Queue()
