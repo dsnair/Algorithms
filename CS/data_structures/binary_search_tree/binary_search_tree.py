@@ -9,6 +9,7 @@ class BinarySearchTree:
 
   def insert(self, value):
     # print(self.value, self.left, self.right)
+
     if self.value < value:
       if self.right:
         self.right.insert(value)
@@ -22,7 +23,14 @@ class BinarySearchTree:
         self.left = BinarySearchTree(value)          
   
   def contains(self, target):
-    pass
+    # print(self.value, target, self.value == target)
+
+    if target < self.value:
+      return self.left.contains(target) if self.left else False
+    elif target > self.value:
+      return self.right.contains(target) if self.right else False
+    else:
+      return True
 
   def get_max(self):
     pass
@@ -31,10 +39,12 @@ class BinarySearchTree:
     pass
 
 bst = BinarySearchTree(5)
-
 bst.insert(2)
 bst.insert(3)
 bst.insert(7)
 bst.insert(6)
+# print(bst)
 
-print(bst)
+# print(bst.contains(2))
+# print(bst.contains(6))
+# print(bst.contains(8))
