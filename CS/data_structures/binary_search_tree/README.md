@@ -7,6 +7,8 @@
 
 ![Image of Binary Search Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/300px-Binary_search_tree.svg.png)
 
+### Implementation
+
 Should have the methods `insert`, `contains`, `get_max`.
   * `insert` adds the input value to the binary search tree, adhering to the rules of the ordering of elements in a binary search tree.
   * `contains` searches the binary search tree for the input value, returning a boolean indicating whether the value exists in the tree or not.
