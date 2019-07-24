@@ -1,4 +1,4 @@
-class BinarySearchTree:
+class BinarySearchTreeNode:
   def __init__(self, value):
     self.value = value
     self.left = None
@@ -16,13 +16,13 @@ class BinarySearchTree:
       if self.right:
         self.right.insert(value)
       else:
-        self.right = BinarySearchTree(value) 
+        self.right = BinarySearchTreeNode(value) 
              
     else:
       if self.left:
         self.left.insert(value)
       else:
-        self.left = BinarySearchTree(value)          
+        self.left = BinarySearchTreeNode(value)          
   
 
   def contains(self, target):
@@ -35,16 +35,25 @@ class BinarySearchTree:
 
 
   def get_max(self):
-    current = self
-    while current.right:
-      current = current.right
-    return current.value
+    tree = self
+    while tree.right:
+      tree = tree.right
+    return tree.value
+
 
   def for_each(self, cb):
-    pass
+    # Preorder traversal (Root, Left, Right)
+    
+    cb(self.value)  # cb is defined in test_binary_search_tree.py
+
+    if self.left:
+        self.left.for_each(cb)
+
+    if self.right:
+        self.right.for_each(cb)
 
 
-bst = BinarySearchTree(5)
+bst = BinarySearchTreeNode(5)
 bst.insert(2)
 bst.insert(3)
 bst.insert(7)
@@ -56,4 +65,4 @@ bst.insert(6)
 # print(bst.contains(6))
 # print(bst.contains(8))
 
-print(bst.get_max())
+# print(bst.get_max())

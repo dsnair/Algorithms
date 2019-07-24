@@ -3,7 +3,6 @@
 - is a type of tree where a node has ATmost two child nodes (hence the name)
 - Given any node, the left subtree of that node contains values < than that node. And, the right subtree of that node contains values >= than that node.
 - The left and right subtree each must also be a binary search tree.
-- There must be no duplicate nodes.
 
 ![Image of Binary Search Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/300px-Binary_search_tree.svg.png)
 
