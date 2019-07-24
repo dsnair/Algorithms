@@ -41,9 +41,7 @@ class BinarySearchTreeNode:
     return tree.value
 
 
-  def for_each(self, cb):
-    # Preorder traversal (Root, Left, Right)
-    
+  def for_each(self, cb):    
     cb(self.value)  # cb is defined in test_binary_search_tree.py
 
     if self.left:

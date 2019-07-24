@@ -46,6 +46,7 @@
 - are a combination of binary trees and arrays
 - Binary heap is a binary tree where every node is larger (or smaller) than its two child nodes. The former is called max heap and the latter is called min heap.
 ![Image of a Heap in Tree form](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/501px-Max-Heap.svg.png)
+- Every subtree is a binary heap.
 - The trees are then flattened as an array.
 ![Image of a Heap in Array form](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/603px-Heap-as-array.svg.png)
 - Heaps are used in sort algorithms (heapsort), graph traversal algorithms, selection algorithms (finding min, max, median)
