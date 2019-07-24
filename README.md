@@ -18,10 +18,8 @@ Big-O Runtime Analysis
 1. Queue
 1. Stack
 1. Binary Search Tree
-~~1. Doubly Linked List~~
-~~1. Heap~~
-~~1. LRU Cache~~
-~~1. AVL Tree~~
+1. Doubly Linked List
+1. Heap
 
 #### C. Search Algorithms
 
