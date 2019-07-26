@@ -66,7 +66,7 @@ class Heap:
         self._sift_down(right_child)
 
 
-h = Heap()
+# h = Heap()
 
 # h.insert(6)
 # h.insert(7)
