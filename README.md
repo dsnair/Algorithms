@@ -19,11 +19,12 @@ Big-O Runtime Analysis
 1. Stack
 1. Binary Search Tree
 1. Doubly Linked List
-1. Heap
+1. Max Heap
+1. Ring Buffer
 
 #### C. Search Algorithms
 
-Coming soon!
+1. Binary Search
 
 
 ### II. Mathematics and Statistics
