@@ -11,8 +11,8 @@ class TestBasicHashTable(unittest.TestCase):
     def test_hash_table_creation(self):
         ht = BasicHashTable(8)
 
-        self.assertEqual(len(ht.storage), 8)
-        self.assertTrue(ht.storage is not None)
+        self.assertEqual(len(ht.table), 8)
+        self.assertTrue(ht.table is not None)
 
     def test_hash_table_retrieval_of_initialized_value(self):
         ht = BasicHashTable(8)

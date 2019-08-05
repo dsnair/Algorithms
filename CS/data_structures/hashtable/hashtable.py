@@ -1,10 +1,3 @@
-# Basic hash table key/value pair
-class Pair:
-    def __init__(self, key, value):
-        self.key = key
-        self.value = value
-
-
 # All storage values are initialized to None
 class BasicHashTable:
     def __init__(self, size):
@@ -45,18 +38,21 @@ def hash_table_remove(hash_table, key):
 
 # Should return None if the key is not found
 def hash_table_retrieve(hash_table, key):
-    pass
+    index = hash(key) % hash_table.size
+    if index:
+        return hash_table.table[index]
+    else:
+        return None
 
 
 def Testing():
     ht = BasicHashTable(16)
-    hash_table_insert(ht, "line", "Here today...\n")
-    hash_table_remove(ht, "line")
+    hash_table_insert(ht, "hello", "World!")
+    hash_table_remove(ht, "hello")
 
-    if hash_table_retrieve(ht, "line") is None:
-        print("...gone tomorrow (success!)")
+    if hash_table_retrieve(ht, "hello") is None:
+        print("Success!")
     else:
-        print("ERROR:  STILL HERE")
-
+        print("Error!")
 
 Testing()
