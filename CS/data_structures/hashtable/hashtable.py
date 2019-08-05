@@ -30,11 +30,17 @@ def hash_table_insert(hash_table, key, value):
         print("You're overwriting the hash table key.")
     else:
         hash_table.table[index] = value
+    # print(hash_table.table[index])
 
 
 # If you try to remove a value that isn't there, print a warning
 def hash_table_remove(hash_table, key):
-    pass
+    index = hash(key) % hash_table.size
+    if hash_table.table[index]:
+        hash_table.table[index] = None
+    else:
+        print("This value doesn't exist in the hash table.")
+    # print(hash_table.table[index])
 
 
 # Should return None if the key is not found
