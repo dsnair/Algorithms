@@ -23,34 +23,28 @@ def hash(string, max = 2 ** 32):
     return h
 
 
-# If you are overwriting a value with a different key, print a warning.
+# If you are overwriting a value with a different key, print a warning
 def hash_table_insert(hash_table, key, value):
-    pass
+    index = hash(key) % hash_table.size
+    if hash_table.table[index]:
+        print("You're overwriting the hash table key.")
+    else:
+        hash_table.table[index] = value
 
 
-# '''
-# Fill this in.
-
-# If you try to remove a value that isn't there, print a warning.
-# '''
+# If you try to remove a value that isn't there, print a warning
 def hash_table_remove(hash_table, key):
     pass
 
 
-# '''
-# Fill this in.
-
-# Should return None if the key is not found.
-# '''
+# Should return None if the key is not found
 def hash_table_retrieve(hash_table, key):
     pass
 
 
 def Testing():
     ht = BasicHashTable(16)
-
     hash_table_insert(ht, "line", "Here today...\n")
-
     hash_table_remove(ht, "line")
 
     if hash_table_retrieve(ht, "line") is None:
