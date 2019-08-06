@@ -29,35 +29,51 @@ class HashTable:
 
     # Handle collisions with Linked List
     def insert(self, key, value):
-        index = hash(key) % self.size
+        index = hash(key, self.size)
+       
         if self.table[index]:
-            print("You're overwriting the hash table key.")
+            lp = LinkedPair(key, value)
+            lp.next = self.table[index]
+            self.table[index] = lp
         else:
-            self.table[index] = value
-        # print("Insert:", self.table[index])
+            self.table[index] = LinkedPair(key, value)
 
 
     # If you try to remove a value that isn't there, print a warning
     def remove(self, key):
-        index = hash(key) % self.size
+        index = hash(key, self.size)
         if self.table[index]:
             self.table[index] = None
         else:
             print("This value doesn't exist in the hash table.")
-        # print("Remove:", self.table[index])
 
 
     # Return None if the key is not found
     def retrieve(self, key):
-        index = hash(key) % self.size
-        if index:
-            # print("Retrieve:", self.table[index])
-            return self.table[index]
+        index = hash(key, self.size)
+
+        # if hash table index is not empty,
+        if self.table[index]:
+            # loop through linked list until key is found
+            lp = self.table[index]
+            if lp.key == key:
+                return lp.value
+            else:
+                while lp.next is not None:
+                    if lp.next.key == key:
+                        return lp.next.value
+                    else:
+                        lp = lp.next
         else:
+            # return None if key is not found
             return None
 
 
 ht = HashTable(16)
-ht.insert("hello", "World!")
-ht.retrieve("hello")
-ht.remove("hello")
+
+ht.insert("key0", "value0")
+ht.insert("key0", "value1")
+
+print(ht.retrieve("key0"))
+
+# ht.remove("nonexistent-key")
