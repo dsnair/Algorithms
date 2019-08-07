@@ -18,7 +18,16 @@ def hash(string, max = 2 ** 32):
 
 
 def resize(hash_table):
-    pass
+    # double hash table size
+    ht = HashTable(2 * hash_table.size) 
+
+    # copy old hash table into new one
+    for item in hash_table.table:
+        while item != None:
+            ht.insert(item.key, item.value)
+            item = item.next
+            
+    return ht
 
 
 class HashTable:
@@ -30,24 +39,29 @@ class HashTable:
     # Handle collisions with Linked List
     def insert(self, key, value):
         index = hash(key, self.size)
-       
+        lp = LinkedPair(key, value)
+
+        # if there is collision,
         if self.table[index]:
-            lp = LinkedPair(key, value)
+            # store the value of the colliding key in the next linked list node
             lp.next = self.table[index]
-            self.table[index] = lp
-        else:
-            self.table[index] = LinkedPair(key, value)
+        
+        self.table[index] = lp
 
 
     def remove(self, key):
         index = hash(key, self.size)
 
+        # if hash table index has values
         if self.table[index]:
             lp = self.table[index]
+            # and you found the key,
             if lp.key == key:
+                # replace that value with the next key's value
                 self.table[index] = lp.next
             else:
-                while lp.next is not None:
+                # else loop through linked list until you find the key
+                while lp.next != None:
                     if lp.next.key == key:
                         lp.next = lp.next.next
                     else:
@@ -56,18 +70,17 @@ class HashTable:
             print("This value doesn't exist in the hash table.")
 
 
-    # Return None if the key is not found
     def retrieve(self, key):
         index = hash(key, self.size)
 
-        # if hash table index is not empty,
+        # if hash table index has values,
         if self.table[index]:
             # loop through linked list until key is found
             lp = self.table[index]
             if lp.key == key:
                 return lp.value
             else:
-                while lp.next is not None:
+                while lp.next != None:
                     if lp.next.key == key:
                         return lp.next.value
                     else:
@@ -77,11 +90,14 @@ class HashTable:
             return None
 
 
-ht = HashTable(16)
+ht = HashTable(1)
 
 ht.insert("key0", "value0")
 ht.insert("key0", "value1")
-
 print(ht.retrieve("key0"))
 
 ht.remove("nonexistent-key")
+
+new = resize(ht)
+print(len(new.table))
+print(new.retrieve("key0"))
