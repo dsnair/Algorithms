@@ -39,11 +39,19 @@ class HashTable:
             self.table[index] = LinkedPair(key, value)
 
 
-    # If you try to remove a value that isn't there, print a warning
     def remove(self, key):
         index = hash(key, self.size)
+
         if self.table[index]:
-            self.table[index] = None
+            lp = self.table[index]
+            if lp.key == key:
+                self.table[index] = lp.next
+            else:
+                while lp.next is not None:
+                    if lp.next.key == key:
+                        lp.next = lp.next.next
+                    else:
+                        lp = lp.next
         else:
             print("This value doesn't exist in the hash table.")
 
@@ -76,4 +84,4 @@ ht.insert("key0", "value1")
 
 print(ht.retrieve("key0"))
 
-# ht.remove("nonexistent-key")
+ht.remove("nonexistent-key")
