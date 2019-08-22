@@ -21,10 +21,13 @@ Big-O Runtime Analysis
 1. Doubly Linked List
 1. Max Heap
 1. Ring Buffer
+1. Hash table
 
 #### C. Search Algorithms
 
 1. Binary Search
+1. Depth-first Search and Depth-first Traversal
+1. Breadth-first Search and Breadth-first Traversal
 
 
 ### II. Mathematics and Statistics
