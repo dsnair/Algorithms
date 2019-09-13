@@ -62,12 +62,12 @@ console.log(two) // 2
 
 ### a. Remove
 
-| Method | Use Case                              | Returns         | Mutable? |
-| ------ | ------------------------------------- | --------------- | -------- |
-| pop    | remove last element                   | removed element | Yes      |
-| shift  | remove first element                  | removed element | Yes      |
-| splice | remove 1+ element from specific index | removed element | Yes      |
-| filter | remove elements programmatically      | new array       | No       |
+| Method | Use Case                              | Returns            | Mutable? |
+| ------ | ------------------------------------- | ------------------ | -------- |
+| pop    | remove last element                   | removed element    | Yes      |
+| shift  | remove first element                  | removed element    | Yes      |
+| splice | remove 1+ element from specific index | removed element(s) | Yes      |
+| filter | remove elements programmatically      | new array          | No       |
 
 ### b. Add
 
@@ -77,7 +77,29 @@ console.log(two) // 2
 | unshift | add 1+ element at the beginning | array length | Yes      |
 | splice  | add element at specific index   | empty array  | Yes      |
 
-### c. Loop
+```javascript
+let x = [1, 2, 3, 4, 5]
+
+console.log(x.splice(1, 2)) // [2, 3]
+console.log(x) // [1, 4, 5]
+
+console.log(x.splice(1, 0, 6)) // []
+console.log(x) // [1, 6, 4, 5]
+```
+
+### c. Extract
+
+| Method | Use Case     | Returns   | Mutable? |
+|--------|--------------|-----------|----------|
+| slice  | subset array | new array | No       |
+
+```javascript
+let x = [1, 2, 3]
+console.log(x.slice(0, 2)) // [1, 2]
+console.log(x.slice(-2)) // [2, 3]
+```
+
+### d. Loop
 
 | Method  | Use Case                                   | Returns         | Mutable? |
 | ------- | ------------------------------------------ | --------------- | -------- |
