@@ -99,6 +99,8 @@ console.log(x.slice(0, 2)) // [1, 2]
 console.log(x.slice(-2)) // [2, 3]
 ```
 
+`indexOf` is useful for finding the indices of items when using `splice` and `slice`.
+
 ### d. Loop
 
 | Method  | Use Case                                   | Returns         | Mutable? |
@@ -125,3 +127,14 @@ console.log(x.slice(-2)) // [2, 3]
 | ---------- | ---------------------------- | ---------- | -------- |
 | slice      | return string in given range | new string | No       |
 | str[index] | return string at given index | new string | No       |
+
+## 3. Object
+
+```javascript
+let obj = { a: 1, b: true }
+```
+
+1. `'a' in obj` returns a boolean for if the key is in the object
+2. `Object.keys(obj)` returns an array of the object keys
+3. `Object.values(obj)` returns an array of the object values
+4. `obj.c = 'c'` changes the value of the key, if it exists, or creates the key, if it doesn't exist
