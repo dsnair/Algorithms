@@ -9,14 +9,16 @@
 5. Object = {key: 'value'}
 6. Set
 
-- `undefined` is a declared variable whose value is not yet set.
+### Specialities
+
+1. `undefined` is a declared variable whose value is not yet set.
 
 ```javascript
 let a
 console.log(a) // undefined
 ```
 
-- `null` is an empty assigned value.
+2. `null` is an empty assigned value.
 
 ```javascript
 let a = null
@@ -29,6 +31,23 @@ console.log(a) // null
 | Object | Yes      | No             | Yes           | Key         |
 | Set    | Yes      | No             | Yes           | .has()      |
 | String | No       | Yes            | No            | Index       |
+
+3. Pre-increment vs. post-increment:
+
+- ++a (pre-increment) increments before value is returned. 
+- a++ (post-increment) increments after value is returned.
+
+```javascript
+let a = 0
+a++ // 0
+a // 1
+```
+
+```javascript
+let a = 0
+++a // 1
+a // 1
+```
 
 ## 2. Ternary Operator
 
